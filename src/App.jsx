@@ -1,8 +1,12 @@
 import { useState } from "react";
+import poke from './assets/pokeapi_256.png'
 
 function App() {
 
- const [nome, setNome] = useState("Memphis")
+
+  const Formulario = (props) => {
+
+  const [nome, setNome] = useState("Memphis")
  
   // var nome = "Arissatti";
 
@@ -13,8 +17,9 @@ function App() {
        className="nome"
        name = "nome"
        onChange={(e)=> {setNome(e.target.value)}}
-       placeholder="Digite um nome..."
+       placeholder={props.sombra != null ? props.sombra : "Texto padrão"}
       type="text" />
+      
       <button 
       className="botao"
       onClick={()=>{alert(nome)}}>
@@ -22,6 +27,21 @@ function App() {
       </button>
     </div>
   )
+}
+
+return (
+ <div>
+  <h3>Pizzaria 2F</h3>
+  <img src={poke} style={{width:200, height:100}} />
+  <Formulario sombra="Digite seu nome..."/>
+  <Formulario sombra="Digite seu e-mail..."/>
+  <Formulario sombra="(99)90000-0000"/>
+  <Formulario/>
+  <Formulario />
+  <Formulario/>
+
+ </div>
+ )
 }
 
 export default App
